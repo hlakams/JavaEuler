@@ -31,7 +31,7 @@ public class P8 {
 			for(int pos = 0; pos < 13; pos++) {
 				long templong = (long) Integer.parseInt(String.valueOf(i.charAt(index + pos)));
 				tempProd *= templong;
-			};
+			}
 						
 			maxProd = Math.max(maxProd, tempProd);
 		}
