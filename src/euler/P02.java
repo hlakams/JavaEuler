@@ -2,7 +2,7 @@ package euler;
 
 import java.util.ArrayList;
 
-public class P2 {
+public class P02 {
 	public static void main(String[] args) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		int minus2 = 1;

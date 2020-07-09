@@ -1,6 +1,6 @@
 package euler;
 
-public class P4 {
+public class P04 {
 	public static void main(String[] args) {
 		int maxPalindrome = 0;
 		int product = 0;

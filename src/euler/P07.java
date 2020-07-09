@@ -2,7 +2,7 @@ package euler;
 
 import java.util.ArrayList;
 
-public class P7 {
+public class P07 {
 	public static void main(String[] args){
 	    ArrayList<Integer> list = new ArrayList<Integer>();
 	    list.add(2);

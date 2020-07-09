@@ -1,6 +1,6 @@
 package euler;
 
-public class P5 {
+public class P05 {
 	// Main code
 	public static void main(String[] args) {
 		long gcd = 1;

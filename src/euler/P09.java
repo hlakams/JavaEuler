@@ -1,6 +1,6 @@
 package euler;
 
-public class P9 {
+public class P09 {
 	public static void main(String[] args) {
 		for(long a = 1; a < 500; a++) {
 			for(long b = 1; b < 500; b++) {

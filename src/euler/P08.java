@@ -1,6 +1,6 @@
 package euler;
 
-public class P8 {
+public class P08 {
 	public static void main(String[] args) {
 		
 		String i = "73167176531330624919225119674426574742355349194934" + 
