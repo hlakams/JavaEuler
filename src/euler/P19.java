@@ -19,7 +19,6 @@ public class P19 {
             temp[0] = i;
             temp[1] = LeapYear(i);
             set.add(temp);
-            System.out.println(Arrays.toString(set.get(count)));
             count++;
         }
 
