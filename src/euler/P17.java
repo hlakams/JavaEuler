@@ -20,21 +20,20 @@ public class P17 {
             len = num.length();
 
             while(len != 0) {
-                System.out.println("Length: " + len);
+
+                // Value 1000
                 if (len == 4) {
-                    sum += 11; // one thousand
+                    sum += 11;
                     len = 0;
-                    System.out.println("Thousand");
                     break;
                 }
 
+                // Values 100 - 999
                 if (len == 3) {
-                    System.out.println(temp);
                     // all numbers of length three have "hundred" in name
                     sum += 7;
 
                     // extracting place value of hundreds, using dictionary defined in len == 1
-//                    temp = n / 100;
                     sum = ones(sum, n / 100);
 
                     // "and" for numbers that are not hundreds only
@@ -48,31 +47,30 @@ public class P17 {
                     temp %= 100;
                 }
 
+                // Values 10 - 99
                 if (len == 2){
-                    System.out.println(temp);
+
+                    // Values *0
                     if(temp % 10 == 0){
-                        if(temp == 10){
-                            sum += 3;
-                        }
-                        if(temp == 40 || temp == 50 || temp == 60 || temp == 80){
-                            sum += 5;
-                        }
-                        if(temp == 20 || temp == 30 || temp == 90){
-                            sum += 6;
-                        }
-                        if(temp == 70){
-                            sum += 7;
-                        }
+                        sum = tens(sum, temp);
                         break;
                     }
 
                     else {
+                        // Values 11 - 19
                         if (temp >= 11 && temp <= 19) {
                             if (temp == 11 || temp == 12) {
                                 sum += 6;
-                            } else if (temp == 13) {
+                            }
+                            else if (temp == 13 || temp == 18) {
                                 sum += 8;
-                            } else {
+                            }
+                            else if(temp == 15){
+                                sum += 7;
+                            }
+
+                            // Values for -teen
+                            else {
                                 sum += 4;
                                 temp %= 10;
                                 sum = ones(sum, temp);
@@ -80,39 +78,49 @@ public class P17 {
                             break;
                         }
                         else{
+                            // All other non-included values not mentioned, 10's
                             if(temp % 10 != 0){
-                                int subTemp = (temp/10) * 10;
-                                if(subTemp == 10){
-                                    sum += 3;
-                                }
-                                if(subTemp == 40 || subTemp == 50 || subTemp == 60 || subTemp == 80){
-                                    sum += 5;
-                                }
-                                if(subTemp == 20 || subTemp == 30 || subTemp == 90){
-                                    sum += 6;
-                                }
-                                if(subTemp == 70){
-                                    sum += 7;
-                                }
+                                sum = tens(sum, (temp/10) * 10);
                             }
                         }
                     }
 
+                    // Get 1's digit
                     temp %= 10;
                 }
 
+                // Values 1 - 9
                 if (len == 1) {
-                    System.out.println(temp);
                     sum = ones(sum, temp);
                 }
 
+                // Decrease key length
                 len--;
             }
 
+            // Print out sum + index length
             System.out.println("\tSum: " + sum + "\tChange: " + (sum - add));
         }
     }
 
+    // Helper method for Tens
+    private static int tens(int sum, int temp) {
+        if(temp == 10){
+            sum += 3;
+        }
+        if(temp == 40 || temp == 50 || temp == 60){
+            sum += 5;
+        }
+        if(temp == 20 || temp == 30 || temp == 80 || temp == 90){
+            sum += 6;
+        }
+        if(temp == 70){
+            sum += 7;
+        }
+        return sum;
+    }
+
+    // Helper method for Ones
     private static int ones(int sum, int temp) {
         if(temp == 1 || temp == 2 || temp == 6){
             sum += 3;
